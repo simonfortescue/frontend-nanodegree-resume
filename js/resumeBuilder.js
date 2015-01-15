@@ -1,14 +1,16 @@
 var bio  = {
-	"name": "Simon  Fortescue",
-	"role": "entrepeneur",
+	"name": "John Doe",
+	"role": "Web Developer",
 	"contacts": {
-		"mobile": "021 0000 000",
-		"email": "simonfortescue@gmail.com",
-		"github": "simon fortescue",
-		"location": "Auckland"
-	}
+		"mobile": "021-0000-000",
+		"email": "john@example.com",
+		"github": "johndoe",
+		"twitter": "@johndoe",
+		"location": "San Fransisco"
+	},
 	"welcome message": "efkn jrhbfwherbf whebfh",
-	"skills" : ["fun", "superhuman powers", "web design"]
+	"skills" : ["fun", "superhuman powers", "web design"],
+	"biopic:" "images/fry.jpg"
 }
 
 var education = {
@@ -16,21 +18,30 @@ var education = {
 	{
 		"name": "Broadwater",
 		"cities": "Godalming",
-		"Majors": ["english", "Maths", "Physics"],
-		"Minors": ["Art", "Music"],
-		"graduation years": 1993,
-		"online course information": "none"
+		"degree": "Masters",
+		"majors": ["CS"],
+		"dates": 1993,
+		"url": "http://example.com"
 	},
 	{
 		"name": "Godalming College",
-		"cities": "Godalming",
-		"Majors": ["english", "Maths", "Physics"],
-		"Minors": ["Art", "Music"],
-		"graduation years": 1990,
-		"online course information": "none"	
+		"city": "Godalming",
+		"degree": ["BA"],
+		"majors": ["CS"],
+		"dates": 2003,
+		"url": "http://example.com"	
 	}
-  ]
-}
+   ],
+   "onlineCourses": [
+	{
+		"title":"Javascript Crash Course",
+		"school": "Udacity",
+		"dates": 2014,
+		"url": "http://www/udacity.com/course/ud804"
+	}
+   ]
+		
+} 
 
 var work = {
 	"jobs": [
@@ -47,7 +58,7 @@ var work = {
 		"description": "2 efffffffffffffffffffffffrfger 2"
 
 	}
-	]
+  ]
 }
 
 var projects = {
@@ -59,8 +70,20 @@ var projects = {
 		}
 	]
 
-}
+} 
+if (bio.skills.length > 0) {
+$("#header").append(HTMLskillsStart);
 
-$("#main").append(work["position"]);
-$("#main").append(education.name);
+var formattedSkill = HTMLskills.replace("%data%",bio.skills[0]);
+$("#skills").append(formattedSkill);
+formattedSkill = HTMLskills.replace("%data%",bio.skills[1]);
+$("#skills").append(formattedSkill);
+formattedSkill = HTMLskills.replace("%data%",bio.skills[2]);
+$("#skills").append(formattedSkill);
+formattedSkill = HTMLskills.replace("%data%",bio.skills[3]);
+$("#skills").append(formattedSkill);
+
+
+/* $("#main").append(work.jobs.employer[0]);
+//$("#main").append(education.schools.name) */;
 
