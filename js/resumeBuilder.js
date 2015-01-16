@@ -85,22 +85,25 @@ var work = {
 
 // testing 16 jan at 4.05pm
 
-for (job in work.jobs){
-	//create a new div for work experiencce
-	$("#workExperience").append(HTMLworkStart);
-	//concat employer and title
-	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-	var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-	var formattedEmployerTitle = formattedEmployer + formattedTitle;
-	$(".work-entry:last").append(formattedEmployerTitle);
-	
-	var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-	$(".work-entry:last").append(formattedDates);
-	
-	var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-	$(".work-entry:last").append(formattedDescription);
-	}
+function displayWork(){
+	for (job in work.jobs){
+		//create a new div for work experiencce
+		$("#workExperience").append(HTMLworkStart);
+		//concat employer and title
+		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+		var formattedEmployerTitle = formattedEmployer + formattedTitle;
+		$(".work-entry:last").append(formattedEmployerTitle);
+		
+		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+		$(".work-entry:last").append(formattedDates);
+		
+		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+		$(".work-entry:last").append(formattedDescription);
+		}
+}
 
+displayWork();
 
 // unblocked on 16 jan and works
 
