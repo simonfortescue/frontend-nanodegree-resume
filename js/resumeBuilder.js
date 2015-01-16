@@ -3,8 +3,8 @@
 
 $("#main").append("Simon");
 
-//tested unblock on 16 jan and fails
-/* var bio  = {
+// tested and works (section at 3pm on 16 jan
+var bio  = {
 	"name": "John Doe",
 	"role": "Web Developer",
 	"contacts": {
@@ -15,11 +15,12 @@ $("#main").append("Simon");
 		"location": "San Fransisco"
 	},
 	"welcome message": "efkn jrhbfwherbf whebfh",
-	"skills" : ["fun", "superhuman powers", "web design", "other"],
-	"biopic:" "images/fry.jpg"
-} */
+	"skills": ["fun", "superhuman powers", "web design", "other"],
+	"biopic": "images/fry.jpg"
+}
 
-/* if (bio.skills.length > 0) {
+//below section tested and works 16 Jan at 321 pm
+if (bio.skills.length > 0) {
 $("#header").append(HTMLskillsStart);
 
 var formattedSkill = HTMLskills.replace("%data%",bio.skills[0]);
@@ -30,7 +31,7 @@ formattedSkill = HTMLskills.replace("%data%",bio.skills[2]);
 $("#skills").append(formattedSkill);
 formattedSkill = HTMLskills.replace("%data%",bio.skills[3]);
 $("#skills").append(formattedSkill);
-}  */
+} 
 
 // section uncommented on 16 Jan and works
 var education = {
@@ -67,29 +68,38 @@ var education = {
 var work = {
 	"jobs": [
 	{
-		"employer": "Mr Delivery",
-		"title": "Entrepreneur",
-		"dates": "forever",
+		"employer": "AAA Ltd",
+		"title": "Fitter",
+		"dates": "January 2000 - 2006",
 		"description": "efffffffffffffffffffffffrfger"
 	},
 {	
-		"employer": "Mr Delivery 2",
-		"title": "Entrepreneur 2",
-		"dates": "forever 2",
+		"employer": "BBB Ltd",
+		"title": "Rep",
+		"dates": "January 3000 - Future",
 		"description": "2 efffffffffffffffffffffffrfger 2"
 	}
   ]
 }
 
 
+// testing 16 jan at 4.05pm
 
-/* for (job in work.jobs){ */
-	//$("#workExperience").append(HTMLworkStart);
-	/* var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
-	var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].title);
-	var formatterEmployerTitle = formattedEmployer + formattedTitle;
-	$(".work-entry:last").append(formattedEmployerTitle); */
-	/* } */
+for (job in work.jobs){
+	//create a new div for work experiencce
+	$("#workExperience").append(HTMLworkStart);
+	//concat employer and title
+	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+	var formattedEmployerTitle = formattedEmployer + formattedTitle;
+	$(".work-entry:last").append(formattedEmployerTitle);
+	
+	var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+	$(".work-entry:last").append(formattedDates);
+	
+	var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+	$(".work-entry:last").append(formattedDescription);
+	}
 
 
 // unblocked on 16 jan and works
