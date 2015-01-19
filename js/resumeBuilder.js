@@ -117,3 +117,41 @@ var projects = {
 	]
 
 } 
+
+// using encapsulation of a function to display the project information
+
+//projects.display function {
+//		$("#workExperience").append(HTMLworkStart);
+
+// }
+//var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+//		$(".work-entry:last").append(formattedDates);
+
+
+
+
+// logging clicks on page - the new quiz done and tested on 17 Jan
+
+$(document).click(function(loc) {
+  // your code goes here
+  var x = loc.pageX;
+  var y = loc.pageY;
+  logClicks(x,y);
+});
+
+//created sections below lesson 11 of JS flow control but not sure i need it
+/* $("#main").append(internationalizeButton);
+
+inName(Sebastian thrun"); */
+
+
+/* function inName(name){
+	name= name.trim().split(" ");
+	console.log(name);
+	name[1] = name[1].toUpperCase;
+	name[0] = name[0].slice(0,1).toUpperCase;
+	name[0] = name[0].slice(1).toLowerCase;
+	return name[0] + " " + name[1];
+	
+	return fullName;
+} */
