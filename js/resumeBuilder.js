@@ -14,9 +14,9 @@ var bio  = {
 		"twitter": "@johndoe",
 		"location": "San Fransisco"
 	},
-	"welcome message": "efkn jrhbfwherbf whebfh",
+	"welcomeMessage": "efkn jrhbfwherbf whebfh",
 	"skills": ["fun", "superhuman powers", "web design", "other"],
-	"biopic": "images/fry.jpg"
+	"bioPic": "images/fry.jpg"
 }
 
 //below section tested and works 16 Jan at 321 pm
@@ -47,7 +47,7 @@ var education = {
 	{
 		"name": "Godalming College",
 		"city": "Godalming",
-		"degree": ["BA"],
+		"degree": "BA",
 		"majors": ["CS"],
 		"dates": 2003,
 		"url": "http://example.com"	
@@ -105,28 +105,58 @@ function displayWork(){
 
 displayWork();
 
-// unblocked on 16 jan and works
+// Projects object and function work - tested on 20 Jan SF
 
 var projects = {
 	"projects": [
 		{
-		 "title": "sample project 1",
-		 "date": "2014",
-		 "description": "ewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwf"
-		}
+		 "title": "Sample Project 1",
+		 "date": 2014,
+		"description": "ewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwf",
+		 "images": ["http://www.w3schools.com/htmL/pic_mountain.jpg","http://www.w3schools.com/htmL/pic_mountain.jpg"]
+		},
+		{
+		 "title": "Sample Project 2",
+		 "date": 2015,
+		 "description": "ergergegegegegeget",
+		 "images": ["http://www.w3schools.com/htmL/pic_mountain.jpg","http://www.w3schools.com/htmL/pic_mountain.jpg"]
+		}	
 	]
-
 } 
 
 // using encapsulation of a function to display the project information
 
-//projects.display function {
-//		$("#workExperience").append(HTMLworkStart);
+projects.display = function() {
+	
+	$("#main").append("hello");
+	for (project in projects.projects) {
+	
+	
+	$("#projects").append(HTMLprojectStart);
+	
+	var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+	$(".project-entry:last").append(formattedTitle);
+	
+	var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].date);
+	$(".project-entry:last").append(formattedDates);
 
-// }
-//var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-//		$(".work-entry:last").append(formattedDates);
+	var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+	$(".project-entry:last").append(formattedDescription);
+ 
+	if (projects.projects[project].images.length > 0) {
+		for (image in projects.projects[project].images){
+		
+			var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+			$(".project-entry:last").append(formattedImage);
+			
+			}
+		} 	
+	}
+} 
 
+
+// must ALWAYS RUN the FUNCTION to get a function to work - durr - as below
+projects.display();
 
 
 
