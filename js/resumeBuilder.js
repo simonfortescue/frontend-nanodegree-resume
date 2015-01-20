@@ -12,7 +12,7 @@ var bio  = {
 		"email": "john@example.com",
 		"github": "johndoe",
 		"twitter": "@johndoe",
-		"location": "San Fransisco"
+		"location": "Fulham, London"
 	},
 	"welcomeMessage": "efkn jrhbfwherbf whebfh",
 	"skills": ["fun", "superhuman powers", "web design", "other"],
@@ -38,7 +38,7 @@ var education = {
   "schools" : [
 	{
 		"name": "Broadwater",
-		"cities": "Godalming",
+		"cities": "Auckland",
 		"degree": "Masters",
 		"majors": ["CS"],
 		"dates": 1993,
@@ -46,7 +46,7 @@ var education = {
 	},
 	{
 		"name": "Godalming College",
-		"city": "Godalming",
+		"city": "Auckland",
 		"degree": "BA",
 		"majors": ["CS"],
 		"dates": 2003,
@@ -185,3 +185,6 @@ inName(Sebastian thrun"); */
 	
 	return fullName;
 } */
+
+//code for google maps added half way through last quiz in part 2 of JS basics
+$("#mapDiv").append(googleMap);
