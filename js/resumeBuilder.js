@@ -15,16 +15,27 @@ var bio  = {
 	"bioPic": "images/fry.jpg"
 }
 
-bio.displayBio = function() {
-	
+bio.displayBio = function() {	
 	$("#header").append(HTMLskillsStart);
 	
+	//inputs the name and the role
 	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 	$("#header").prepend(formattedRole);
 	var formattedName = HTMLheaderName.replace("%data%", bio.name);
 	$("#header").prepend(formattedName);
 	
+	var formattedMobile = HTMLcontactGeneric.replace("%contact%", "mobile").replace("%data%", bio.contacts.mobile);
+	$("#topContacts").append(formattedMobile);
+	var formattedEmail = HTMLcontactGeneric.replace("%contact%", "email").replace("%data%", bio.contacts.email);
+	$("#topContacts").append(formattedEmail);
+	var formattedGithub = HTMLcontactGeneric.replace("%contact%", "github").replace("%data%", bio.contacts.github);
+	$("#topContacts").append(formattedGithub)
+	var formattedTwitter = HTMLcontactGeneric.replace("%contact%", "twitter").replace("%data%", bio.contacts.twitter);
+	$("#topContacts").append(formattedTwitter)
+	var formattedLocation = HTMLcontactGeneric.replace("%contact%", "location").replace("%data%", bio.contacts.location);
+	$("#topContacts").append(formattedLocation)
 	
+	// inputs skills from array
 	var formattedSkill = HTMLskills.replace("%data%",bio.skills[0]);
 	$("#skills").append(formattedSkill);
 	formattedSkill = HTMLskills.replace("%data%",bio.skills[1]);
@@ -36,6 +47,7 @@ bio.displayBio = function() {
 }
 
 bio.displayBio(); 
+
 
 
 var education = {
@@ -67,7 +79,6 @@ var education = {
    ]
 } 
 
-// Encapsulated and tested
 var work = {
 	"jobs": [
 	{
@@ -109,7 +120,8 @@ work.displayWork = function() {
 
 work.displayWork();		
 
-//encapsulated and tested
+
+
 
 var projects = {
 	"projects": [
@@ -155,8 +167,6 @@ projects.display = function() {
 
 projects.display();
 
-
-
 // logging clicks on page - view source to see it working
 
 $(document).click(function(loc) {
@@ -165,6 +175,10 @@ $(document).click(function(loc) {
   var y = loc.pageY;
   logClicks(x,y);
 });
+
+//code for google maps
+
+$("#mapDiv").append(googleMap);
 
 //created sections below lesson 11 of JS flow control but not sure i need it
 /* $("#main").append(internationalizeButton);
@@ -181,7 +195,3 @@ inName(Sebastian thrun"); */
 	
 	return fullName;
 } */
-
-//code for google maps
-
-$("#mapDiv").append(googleMap);
