@@ -6,17 +6,17 @@ var bio  = {
 	"contacts": {
 		"mobile": "021-0000-000",
 		"email": "john@example.com",
-		"github": "johndoe",
+		"blog": "www.blog.com",
 		"twitter": "@johndoe",
+		"github": "johndoe",
 		"location": "Fulham, London"
 		},
-	"welcomeMessage": "efkn jrhbfwherbf whebfh",
-	"skills": ["fun", "superhuman powers", "web design", "other"],
-	"bioPic": "images/fry.jpg"
+	"welcomeMessage": "efkn jrhbfwhertttttttttttttttttttttttbf whebfh rgegggggggggggggggttttttttgggggggggggggggggggggggggggggggggggggggg",
+	"skills": ["Windsurfer", "superhuman powers", "web design", "Marathon Runner"],
+	"Pic": "images/fry.jpg"
 }
 
 bio.displayBio = function() {	
-	$("#header").append(HTMLskillsStart);
 	
 	//inputs the name and the role
 	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -24,60 +24,43 @@ bio.displayBio = function() {
 	var formattedName = HTMLheaderName.replace("%data%", bio.name);
 	$("#header").prepend(formattedName);
 	
-	var formattedMobile = HTMLcontactGeneric.replace("%contact%", "mobile").replace("%data%", bio.contacts.mobile);
+	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 	$("#topContacts").append(formattedMobile);
-	var formattedEmail = HTMLcontactGeneric.replace("%contact%", "email").replace("%data%", bio.contacts.email);
+	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
 	$("#topContacts").append(formattedEmail);
-	var formattedGithub = HTMLcontactGeneric.replace("%contact%", "github").replace("%data%", bio.contacts.github);
-	$("#topContacts").append(formattedGithub)
-	var formattedTwitter = HTMLcontactGeneric.replace("%contact%", "twitter").replace("%data%", bio.contacts.twitter);
-	$("#topContacts").append(formattedTwitter)
-	var formattedLocation = HTMLcontactGeneric.replace("%contact%", "location").replace("%data%", bio.contacts.location);
-	$("#topContacts").append(formattedLocation)
-	
+	var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+	$("#topContacts").append(formattedTwitter);
+	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+	$("#topContacts").append(formattedGithub);
+	var formattedBlog = HTMLblog.replace("%data%", bio.contacts.blog);
+	$("#topContacts").append(formattedBlog);
+	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+	$("#topContacts").append(formattedLocation);
+			
+	//input the Pic
+	var formattedPic = HTMLbioPic.replace("%data%", bio.Pic);
+	$("#topContacts").append(formattedPic);
+	//input the welcome message
+	var formattedWelcome = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
+	$("#topContacts").append(formattedWelcome);
+		
 	// inputs skills from array
+	$("#topContacts").append(HTMLskillsStart);
+	
 	var formattedSkill = HTMLskills.replace("%data%",bio.skills[0]);
-	$("#skills").append(formattedSkill);
+	$("#topContacts").append(formattedSkill);
 	formattedSkill = HTMLskills.replace("%data%",bio.skills[1]);
-	$("#skills").append(formattedSkill);
+	$("#topContacts").append(formattedSkill);
 	formattedSkill = HTMLskills.replace("%data%",bio.skills[2]);
-	$("#skills").append(formattedSkill);
+	$("#topContacts").append(formattedSkill);
 	formattedSkill = HTMLskills.replace("%data%",bio.skills[3]);
-	$("#skills").append(formattedSkill);
+	$("#topContacts").append(formattedSkill);	
 }
 
+//the below line runs the Bio function
 bio.displayBio(); 
 
-
-
-var education = {
-  "schools" : [
-	{
-		"name": "Broadwater",
-		"cities": "Auckland",
-		"degree": "Masters",
-		"majors": ["CS"],
-		"dates": 1993,
-		"url": "http://example.com"
-	},
-	{
-		"name": "Godalming College",
-		"city": "Auckland",
-		"degree": "BA",
-		"majors": ["CS"],
-		"dates": 2003,
-		"url": "http://example.com"	
-	}
-   ],
-   "onlineCourses": [
-	{
-		"title":"Javascript Crash Course",
-		"school": "Udacity",
-		"dates": 2014,
-		"url": "http://www/udacity.com/course/ud804"
-	}
-   ]
-} 
+//work object follows
 
 var work = {
 	"jobs": [
@@ -88,7 +71,7 @@ var work = {
 		"location": "London",
 		"description": "efffffffffffffffffffffffrfger"
 	},
-{	
+	{	
 		"employer": "BBB Ltd",
 		"title": "Rep",
 		"dates": "January 3000 - Future",
@@ -98,6 +81,7 @@ var work = {
   ]
 }
 
+//encapsulated work function follows
 work.displayWork = function() {
 	for (job in work.jobs) {
 		$("#workExperience").append(HTMLworkStart);
@@ -117,12 +101,86 @@ work.displayWork = function() {
 		$(".work-entry:last").append(formattedDescription);
 	}
 }		
+//next line runs the work function
+work.displayWork();	
 
-work.displayWork();		
+// eduction object follows:
+var education = {
+  "schools" : [
+	{
+		"name": "Broadwater",
+		"location": "Auckland",
+		"degree": "Masters",
+		"majors": ["CS"],
+		"dates": "1993 - 1995",
+	},
+	{
+		"name": "Godalming College",
+		"location": "Auckland",
+		"degree": "BA",
+		"majors": ["Mechanical Engineering"],
+		"dates": "2000 - 2003",
+	}
+   ],
+   "onlineCourses" : [
+		{
+			"title":"Javascript Crash Course",
+			"school": "Udacity",
+			"dates": "2014",
+			"url": "http://www/udacity.com/course/ud804"
+		}/* ,
+		{
+			"title":"Javascript Crash Course",
+			"school": "Udacity",
+			"dates": "2014",
+			"url": "http://www/udacity.com/course/ud804"
+		} */
+	]
+} 
+
+// the below encapsulated function is being constructed to display the education object
+
+education.displayEducation = function() {
+	
+	for (school in education.schools){
+	$("#education").append(HTMLschoolStart);
+	var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+	$(".education-entry:last").append(formattedName);
+	var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+	$(".education-entry:last").append(formattedDegree);	
+	var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+	$(".education-entry:last").append(formattedDates);
+	var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+	$(".education-entry:last").append(formattedLocation);
+	var formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[school].majors[0]);//////  IS A ARRAY!!!!***** CHANGE
+	$(".education-entry:last").append(formattedMajors);	
+	}
+}
+
+education.displayEducation();
+
+//************** I am stuck here because I cant work out where to append the online course properties....
+education.displayOnline = function() { 
+	for (courses in education.onlineCourses)	{
+	$(".education-entry:last").append(HTMLonlineClasses);
+
+	var formattedSchooltitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[courses].title);
+	$(".education-entry:last").append(formattedSchooltitle);	
+	var formattedOnlineschool = HTMLonlineSchool.replace("%data%", education.onlineCourses[courses].school);
+	$(".education-entry:last").append(formattedOnlineschool);	
+	var formattedSchooldates = HTMLonlineDates.replace("%data%", education.onlineCourses[courses].dates);
+	$(".education-entry:last").append(formattedSchooldates);		
+	var formattedSchoolurl = HTMLonlineURL.replace("%data%", education.onlineCourses[courses].url);
+	$(".education-entry:last").append(formattedSchoolurl);	
+	} 
+}
+
+//the below code runs the education function
+
+education.displayOnline();
 
 
-
-
+//project object follows
 var projects = {
 	"projects": [
 		{
@@ -140,6 +198,7 @@ var projects = {
 	]
 } 
 
+//encapsulated project function
 projects.display = function() {
 	
 	for (project in projects.projects) {
@@ -164,13 +223,12 @@ projects.display = function() {
 		} 	
 	}
 } 
-
+// runs project function
 projects.display();
 
-// logging clicks on page - view source to see it working
+// logs the placement of clicks on page - view source to see it working
 
 $(document).click(function(loc) {
-  // your code goes here
   var x = loc.pageX;
   var y = loc.pageY;
   logClicks(x,y);
@@ -179,6 +237,8 @@ $(document).click(function(loc) {
 //code for google maps
 
 $("#mapDiv").append(googleMap);
+
+
 
 //created sections below lesson 11 of JS flow control but not sure i need it
 /* $("#main").append(internationalizeButton);
