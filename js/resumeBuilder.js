@@ -13,17 +13,12 @@ var bio  = {
 		},
 	"welcomeMessage": "efkn jrhbfwhertttttttttttttttttttttttbf whebfh rgegggggggggggggggttttttttgggggggggggggggggggggggggggggggggggggggg",
 	"skills": ["Windsurfer", "superhuman powers", "web design", "Marathon Runner"],
-	"Pic": "images/fry.jpg"
-}
-
-bio.displayBio = function() {	
-	
-	//inputs the name and the role
+	"Pic": "images/fry.jpg",
+	"displayBio" : function() {	
 	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 	$("#header").prepend(formattedRole);
 	var formattedName = HTMLheaderName.replace("%data%", bio.name);
 	$("#header").prepend(formattedName);
-	
 	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 	$("#topContacts").append(formattedMobile);
 	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
@@ -36,17 +31,11 @@ bio.displayBio = function() {
 	$("#topContacts").append(formattedBlog);
 	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 	$("#topContacts").append(formattedLocation);
-			
-	//input the Pic
 	var formattedPic = HTMLbioPic.replace("%data%", bio.Pic);
 	$("#topContacts").append(formattedPic);
-	//input the welcome message
 	var formattedWelcome = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
 	$("#topContacts").append(formattedWelcome);
-		
-	// inputs skills from array
 	$("#topContacts").append(HTMLskillsStart);
-	
 	var formattedSkill = HTMLskills.replace("%data%",bio.skills[0]);
 	$("#topContacts").append(formattedSkill);
 	formattedSkill = HTMLskills.replace("%data%",bio.skills[1]);
@@ -55,12 +44,9 @@ bio.displayBio = function() {
 	$("#topContacts").append(formattedSkill);
 	formattedSkill = HTMLskills.replace("%data%",bio.skills[3]);
 	$("#topContacts").append(formattedSkill);	
+	}
 }
 
-//the below line runs the Bio function
-bio.displayBio(); 
-
-//work object follows
 
 var work = {
 	"jobs": [
@@ -78,11 +64,8 @@ var work = {
 		"location": "Auckland",
 		"description": "2 efffffffffffffffffffffffrfger 2"
 	}
-  ]
-}
-
-//encapsulated work function follows
-work.displayWork = function() {
+  ],
+  "displayWork" : function() {
 	for (job in work.jobs) {
 		$("#workExperience").append(HTMLworkStart);
 		
@@ -100,11 +83,10 @@ work.displayWork = function() {
 		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 		$(".work-entry:last").append(formattedDescription);
 	}
-}		
-//next line runs the work function
-work.displayWork();	
+}
+}
 
-// eduction object follows:
+
 var education = {
   "schools" : [
 	{
@@ -128,19 +110,9 @@ var education = {
 			"school": "Udacity",
 			"dates": "2014",
 			"url": "http://www/udacity.com/course/ud804"
-		}/* ,
-		{
-			"title":"Javascript Crash Course",
-			"school": "Udacity",
-			"dates": "2014",
-			"url": "http://www/udacity.com/course/ud804"
-		} */
-	]
-} 
-
-// the below encapsulated function is being constructed to display the education object
-
-education.displayEducation = function() {
+		} 
+	],
+	"displayEducation" : function() {
 	
 	for (school in education.schools){
 	$("#education").append(HTMLschoolStart);
@@ -154,16 +126,11 @@ education.displayEducation = function() {
 	$(".education-entry:last").append(formattedLocation);
 	var formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[school].majors[0]);//////  IS A ARRAY!!!!***** CHANGE
 	$(".education-entry:last").append(formattedMajors);	
-	}
-}
-
-education.displayEducation();
-
-//************** I am stuck here because I cant work out where to append the online course properties....
-education.displayOnline = function() { 
+	   }
+	},
+	"displayOnline" : function() { 
 	for (courses in education.onlineCourses)	{
 	$(".education-entry:last").append(HTMLonlineClasses);
-
 	var formattedSchooltitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[courses].title);
 	$(".education-entry:last").append(formattedSchooltitle);	
 	var formattedOnlineschool = HTMLonlineSchool.replace("%data%", education.onlineCourses[courses].school);
@@ -172,15 +139,10 @@ education.displayOnline = function() {
 	$(".education-entry:last").append(formattedSchooldates);		
 	var formattedSchoolurl = HTMLonlineURL.replace("%data%", education.onlineCourses[courses].url);
 	$(".education-entry:last").append(formattedSchoolurl);	
-	} 
-}
+		} 
+	}
+} 
 
-//the below code runs the education function
-
-education.displayOnline();
-
-
-//project object follows
 var projects = {
 	"projects": [
 		{
@@ -195,11 +157,8 @@ var projects = {
 		 "description": "ergergegegegegeget",
 		 "images": ["http://www.w3schools.com/htmL/pic_mountain.jpg","http://www.w3schools.com/htmL/pic_mountain.jpg"]
 		}	
-	]
-} 
-
-//encapsulated project function
-projects.display = function() {
+	],
+	"display" : function() {
 	
 	for (project in projects.projects) {
 	$("#projects").append(HTMLprojectStart);
@@ -223,8 +182,16 @@ projects.display = function() {
 		} 	
 	}
 } 
-// runs project function
+} 
+
+// runs functions
+bio.displayBio(); 
 projects.display();
+education.displayEducation();
+education.displayOnline();
+work.displayWork();	
+
+
 
 // logs the placement of clicks on page - view source to see it working
 
@@ -243,7 +210,7 @@ $("#mapDiv").append(googleMap);
 //created sections below lesson 11 of JS flow control but not sure i need it
 /* $("#main").append(internationalizeButton);
 
-inName(Sebastian thrun"); */
+inName(Sebastian thrun"); */   //  note there is only ONE "" here
 
 /* function inName(name){
 	name= name.trim().split(" ");
