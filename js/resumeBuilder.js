@@ -1,20 +1,20 @@
 
 
 var bio  = {
-	"name": "John Doe",
-	"role": "Web Developer",
+	"name": "Simon Fortescue",
+	"role": "General Manager",
 	"contacts": {
 		"mobile": "021-0000-000",
-		"email": "john@example.com",
+		"email": "simonfortescue@gmail.com",
 		"blog": "www.blog.com",
 		"twitter": "@johndoe",
 		"github": "johndoe",
-		"location": "Fulham, London"
-		},
-	"welcomeMessage": "efkn jrhbfwhertttttttttttttttttttttttbf whebfh rgegggggggggggggggttttttttgggggggggggggggggggggggggggggggggggggggg",
-	"skills": ["Windsurfer", "superhuman powers", "web design", "Marathon Runner"],
+		"location": "Auckland, New Zealand"
+	},
+	"welcomeMessage": "Hi, and welcome to my world - a world of sport, giving, work (well not in the literal sense as I love what I do, spirituality, technology, commercialisation, trying, building and learning",
+	"skills": ["Seeking", "Innovation", "running", "leading","windsurfing","SUP'ing"],
 	"Pic": "images/fry.jpg",
-	"displayBio" : function() {	
+	"displayBio" : function() {
 	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 	$("#header").prepend(formattedRole);
 	var formattedName = HTMLheaderName.replace("%data%", bio.name);
@@ -47,7 +47,6 @@ var bio  = {
 	}
 }
 
-
 var work = {
 	"jobs": [
 	{
@@ -64,8 +63,9 @@ var work = {
 		"location": "Auckland",
 		"description": "2 efffffffffffffffffffffffrfger 2"
 	}
-  ],
-  "displayWork" : function() {
+],
+
+	"displayWork" : function() {
 	for (job in work.jobs) {
 		$("#workExperience").append(HTMLworkStart);
 		
@@ -75,15 +75,16 @@ var work = {
 		$(".work-entry:last").append(formattedEmployerTitle);
 		
 		var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-		$(".work-entry:last").append(formattedLocation);				
+		$(".work-entry:last").append(formattedLocation);
 		
 		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-		$(".work-entry:last").append(formattedDates);		
+		$(".work-entry:last").append(formattedDates);
 				
 		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 		$(".work-entry:last").append(formattedDescription);
+		
+		}
 	}
-}
 }
 
 
@@ -103,8 +104,8 @@ var education = {
 		"majors": ["Mechanical Engineering"],
 		"dates": "2000 - 2003",
 	}
-   ],
-   "onlineCourses" : [
+	],
+	"onlineCourses" : [
 		{
 			"title":"Javascript Crash Course",
 			"school": "Udacity",
@@ -115,30 +116,30 @@ var education = {
 	"displayEducation" : function() {
 	
 	for (school in education.schools){
-	$("#education").append(HTMLschoolStart);
-	var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
-	$(".education-entry:last").append(formattedName);
-	var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
-	$(".education-entry:last").append(formattedDegree);	
-	var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
-	$(".education-entry:last").append(formattedDates);
-	var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
-	$(".education-entry:last").append(formattedLocation);
-	var formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[school].majors[0]);//////  IS A ARRAY!!!!***** CHANGE
-	$(".education-entry:last").append(formattedMajors);	
+		$("#education").append(HTMLschoolStart);
+		var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+		$(".education-entry:last").append(formattedName);
+		var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+		$(".education-entry:last").append(formattedDegree);
+		var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+		$(".education-entry:last").append(formattedDates);
+		var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+		$(".education-entry:last").append(formattedLocation);
+		var formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[school].majors[0]);//////  IS A ARRAY!!!!***** CHANGE
+		$(".education-entry:last").append(formattedMajors);
 	   }
 	},
 	"displayOnline" : function() { 
 	for (courses in education.onlineCourses)	{
 	$(".education-entry:last").append(HTMLonlineClasses);
 	var formattedSchooltitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[courses].title);
-	$(".education-entry:last").append(formattedSchooltitle);	
+	$(".education-entry:last").append(formattedSchooltitle);
 	var formattedOnlineschool = HTMLonlineSchool.replace("%data%", education.onlineCourses[courses].school);
-	$(".education-entry:last").append(formattedOnlineschool);	
+	$(".education-entry:last").append(formattedOnlineschool);
 	var formattedSchooldates = HTMLonlineDates.replace("%data%", education.onlineCourses[courses].dates);
-	$(".education-entry:last").append(formattedSchooldates);		
+	$(".education-entry:last").append(formattedSchooldates);
 	var formattedSchoolurl = HTMLonlineURL.replace("%data%", education.onlineCourses[courses].url);
-	$(".education-entry:last").append(formattedSchoolurl);	
+	$(".education-entry:last").append(formattedSchoolurl);
 		} 
 	}
 } 
@@ -174,10 +175,10 @@ var projects = {
  
 	if (projects.projects[project].images.length > 0) {
 		for (image in projects.projects[project].images){
-		
+
 			var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
 			$(".project-entry:last").append(formattedImage);
-			
+
 			}
 		} 	
 	}
@@ -207,18 +208,3 @@ $("#mapDiv").append(googleMap);
 
 
 
-//created sections below lesson 11 of JS flow control but not sure i need it
-/* $("#main").append(internationalizeButton);
-
-inName(Sebastian thrun"); */   //  note there is only ONE "" here
-
-/* function inName(name){
-	name= name.trim().split(" ");
-	console.log(name);
-	name[1] = name[1].toUpperCase;
-	name[0] = name[0].slice(0,1).toUpperCase;
-	name[0] = name[0].slice(1).toLowerCase;
-	return name[0] + " " + name[1];
-	
-	return fullName;
-} */
